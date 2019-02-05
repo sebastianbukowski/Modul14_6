@@ -2,7 +2,6 @@ var Counter = React.createClass({
     getInitialState: function() {
         return {
             counter: 0,
-            counter2: 0,
         };
     },
 
@@ -14,16 +13,6 @@ var Counter = React.createClass({
     decrement: function () {
         this.setState({
             counter: this.state.counter  -1 
-        });
-    },
-    increment1: function() {
-        this.setState({
-            counter2: this.state.counter2 + 1 
-        });
-    },
-    decrement1: function () {
-        this.setState({
-            counter2: this.state.counter2  -1 
         });
     },
 
@@ -67,25 +56,19 @@ var Counter = React.createClass({
                         onClick: this.increment},'Increment Counter'),
                     React.createElement('button', {
                         onClick: this.decrement}, 'Decrement Counter')
-                ),
-                React.createElement('span', {}, 'Licznik2: ' + this.state.counter2),
-                React.createElement('div', {}, 
-                    React.createElement('button', {
-                        className: 'incr_button', 
-                        onClick: this.increment1},'Increment Counter'),
-                    React.createElement('button', {
-                        onClick: this.decrement1}, 'Decrement Counter')
                 )
-
             )
         );
-
     }
-    
 });
 
-var element = React.createElement(Counter);
-ReactDOM.render(element, document.getElementById('app'));
+var app = React.createElement('div', {className: 'counters'},
+    React.createElement(Counter),
+    React.createElement(Counter),
+    React.createElement(Counter)
+)
+
+ReactDOM.render(app, document.getElementById('app'));
 
 
             
